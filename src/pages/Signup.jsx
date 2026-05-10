@@ -27,7 +27,7 @@ const Signup = () => {
 
     try {
       let resp = await axios.post(
-        "http://billbuddy-backend-1.onrender.com/user/saveUser",
+        "https://billbuddy-backend-1.onrender.com/user/saveUser",
         formData
       );
       console.log(resp);
