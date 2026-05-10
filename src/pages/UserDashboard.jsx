@@ -30,7 +30,7 @@ const UserDashboard = () => {
 
   async function getAllGroups() {
     let { data } = await axios.get(
-      "http://localhost:9876/roomMates/getAllRoomDetails",
+      "http://billbuddy-backend-1.onrender.com/roomMates/getAllRoomDetails",
       { withCredentials: true }
     );
     console.log(data);
@@ -40,7 +40,7 @@ const UserDashboard = () => {
   // PUT API TO GET LOGIN USER DATA
   async function getloginuserData() {
     let { data } = await axios.get(
-      "http://localhost:9876/user/getUserName",
+      "http://billbuddy-backend-1.onrender.com/user/getUserName",
       { withCredentials: true }
     );
     setLoginuser(data);
@@ -48,7 +48,7 @@ const UserDashboard = () => {
 
   async function getTotalPrice() {
     let { data } = await axios.get(
-      "http://localhost:9876/user/getUserLoggedInAddedItemsSummation",
+      "http://billbuddy-backend-1.onrender.com/user/getUserLoggedInAddedItemsSummation",
       { withCredentials: true }
     );
     console.log(data);
@@ -65,7 +65,7 @@ const UserDashboard = () => {
     if (newGroup.roomName.trim()) {
       try {
         let resp = await axios.post(
-          "http://localhost:9876/roomMates/createRoom",
+          "http://billbuddy-backend-1.onrender.com/roomMates/createRoom",
           newGroup,{withCredentials:true}
         );
         console.log(resp);
@@ -92,7 +92,7 @@ const UserDashboard = () => {
   if (newFriend.userEmail.trim() && newFriend.roomName.trim()) {
     try {
       let resp = await axios.get(
-        `http://localhost:9876/roomMates/addRoomMates/${newFriend.userEmail}/${newFriend.roomName}`,
+        `http://billbuddy-backend-1.onrender.com/roomMates/addRoomMates/${newFriend.userEmail}/${newFriend.roomName}`,
         { withCredentials: true }
       );
       console.log(resp);
@@ -113,7 +113,7 @@ const UserDashboard = () => {
       console.log("Adding item:", itemData);
       let userName = sessionStorage.getItem("useremail");
       let resp = await axios.post(
-        `http://localhost:9876/items/addItems/${roomName}`,
+        `http://billbuddy-backend-1.onrender.com/items/addItems/${roomName}`,
         itemData,
         { withCredentials: true }
       );
@@ -131,7 +131,7 @@ const UserDashboard = () => {
 
   const logoutuser = async () => {
   try {
-    let resp = await axios.get("http://localhost:9876/user/userLogout", {
+    let resp = await axios.get("http://billbuddy-backend-1.onrender.com/user/userLogout", {
       withCredentials: true,
     });
     console.log(resp);
@@ -168,7 +168,7 @@ const UserDashboard = () => {
 
   const fetchGroupItems = async () => {
   try {
-    const { data } = await axios.get("http://localhost:9876/items/groupItems", {
+    const { data } = await axios.get("http://billbuddy-backend-1.onrender.com/items/groupItems", {
       withCredentials: true,
     });
     setGroupItems(data.userItems);
@@ -180,7 +180,7 @@ const UserDashboard = () => {
 const fetchOweInfo = async () => {
   try {
     const response = await axios.get(
-      "http://localhost:9876/owe/getOweUserByLoggedUserId",
+      "http://billbuddy-backend-1.onrender.com/owe/getOweUserByLoggedUserId",
       { withCredentials: true }
     );
     const data = response.data;

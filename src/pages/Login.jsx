@@ -25,7 +25,7 @@ const Login = () => {
     console.log(formData);
     try {
       let { data } = await axios.get(
-        `http://localhost:9876/user/loginUser/${formData.email}/${formData.password}`,{withCredentials:true}
+        `http://billbuddy-backend-1.onrender.com/user/loginUser/${formData.email}/${formData.password}`,{withCredentials:true}
       );
       console.log(data);
       if (data.message === "Login Success") {
